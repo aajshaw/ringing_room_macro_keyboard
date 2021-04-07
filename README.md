@@ -9,10 +9,10 @@
 
  ## Pin assignments
  GPIO Pin #
- 9  - Stand Next
- 10 - That's all
- 11 - Go next time
- 12 - Look to
- 13 - Single
- 14 - Bob
- 15 - Ring assigned bell
+ + 9  - Stand Next
+ + 10 - That's all
+ + 11 - Go next time
+ + 12 - Look to
+ + 13 - Single
+ + 14 - Bob
+ + 15 - Ring assigned bell
