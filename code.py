@@ -6,6 +6,8 @@ import time
 import board
 import digitalio
 import usb_hid
+import rp2pio
+import adafruit_pioasm
 
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
@@ -31,6 +33,25 @@ class MacroButton():
             if now > self.last_press + MacroButton.debounce:
                 self.last_press = now
                 self.keyboard.send(self.say)
+
+def create_state_machine(asm, freq, pin):
+    assembled = adafruit_pioasm.assemble(asm)
+    rp2pio.StateMachine(assembled, frequency = freq, first_set_pin = pin, exclusive_pin_use = False)
+
+led_on_asm = """
+loop:
+    set pins, 1
+    jmp loop
+"""
+
+led_off_asm = """
+loop:
+    set pins, 0
+    jmp loop
+"""
+
+create_state_machine(led_on_asm, 10000, board.LED)
+create_state_machine(led_off_asm, 40001, board.LED)
 
 keyboard = Keyboard(usb_hid.devices)
 
