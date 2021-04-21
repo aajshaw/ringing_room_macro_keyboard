@@ -16,3 +16,6 @@
  + 13 - Single
  + 14 - Bob
  + 15 - Ring assigned bell
+
+ ## Built in a take-away container
+ ![alt text](https://github.com/aajshaw/ringing_room_macro_keyboard/blob/main/build.jpg "take-away box")
